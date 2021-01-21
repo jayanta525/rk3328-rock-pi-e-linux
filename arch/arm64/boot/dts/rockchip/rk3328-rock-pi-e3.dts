@@ -88,7 +88,6 @@
 	clock_in_out = "output";
 	phy-supply = <&vcc_io>;
 	phy-mode = "rgmii";
-	phy = <&phy1>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&rgmiim1_pins>;
 	snps,reset-gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
@@ -98,14 +97,15 @@
 	rx_delay = <0x00>;//need to do a loopback test
 	status = "okay";
 
+	fixed-link {
+		speed = <1000>;
+		full-duplex;
+	};
+
 	mdio0: mdio {
 		compatible = "snps,dwmac-mdio";
 		#address-cells = <1>;
 		#size-cells = <0>;
-
-		phy1: phy@1 {
-			reg = <1>;
-		};
 	};
 };
 
