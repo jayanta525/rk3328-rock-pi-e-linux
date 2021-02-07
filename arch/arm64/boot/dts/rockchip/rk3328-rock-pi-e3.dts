@@ -84,8 +84,9 @@
 };
 
 &gmac2io {
-	assigned-clocks = <&cru SCLK_MAC2IO>, <&cru SCLK_MAC2IO_EXT>;
+	assigned-clocks = <&cru SCLK_MAC2IO>;
 	clock_in_out = "output";
+	assigned-clock-rate = <125000000>;
 	phy-supply = <&vcc_io>;
 	phy-mode = "rgmii";
 	pinctrl-names = "default";
